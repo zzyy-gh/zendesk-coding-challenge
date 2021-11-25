@@ -10,7 +10,7 @@ From the root directory, go to `/backend`:
 cd backend
 ```
 
-Add a new `.env` file and insert the line below. Replace `{your credentials}` with your own Zendesk account credentials. You can use [Postman](https://www.postman.com/) or [Blitter](https://www.blitter.se/utils/basic-authentication-header-generator/) to generate it at your own risk!
+Add a new `.env` file and insert the line below. Replace `{your credentials}` with your own Zendesk account credentials. You can use [Postman](https://www.postman.com/) or [Blitter](https://www.blitter.se/utils/basic-authentication-header-generator/) to generate it at your own risk. Replace `{your subdomain}` with your own subdomain.
 
 ```bash
 KEY={your credentials}                      // eg. KEY=Basic abcde12345
