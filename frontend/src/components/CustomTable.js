@@ -1,13 +1,18 @@
+// table to display list of tickets
 import React from "react";
 import { Table } from "antd";
 
 const CustomTable = ({ data, setModalData, setModalVisibility }) => {
   var entries = [];
+
+  // add data to entries if it is not null
   if (data) {
     data.forEach(function (iteration, index) {
       entries.push(...iteration["tickets"]);
     });
   }
+
+  // columns of data to be displayed
   const columns = [
     { title: "ID", dataIndex: "id" },
     { title: "Subject", dataIndex: "subject" },
@@ -17,6 +22,7 @@ const CustomTable = ({ data, setModalData, setModalVisibility }) => {
     { title: "Status", dataIndex: "status" },
     { title: "Due at", dataIndex: "due_at" },
   ];
+
   return (
     <Table
       pagination={{ pageSize: 25 }}

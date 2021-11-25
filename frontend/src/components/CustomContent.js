@@ -1,10 +1,11 @@
+// Content of CustomTable for list of tickets and CustomModal for an individual ticket
 import React, { useState } from "react";
 import CustomTable from "./CustomTable";
 import CustomModal from "./CustomModal";
 
 const CustomContent = ({ data }) => {
-  const [modalVisibility, setModalVisibility] = useState(false);
-  const [modalData, setModalData] = useState(null);
+  const [modalVisibility, setModalVisibility] = useState(false); // to make modal visible when a table row is clicked
+  const [modalData, setModalData] = useState(null); // to store the data of the clicked table row
 
   return (
     <>

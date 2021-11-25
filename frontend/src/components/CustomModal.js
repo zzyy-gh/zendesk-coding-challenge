@@ -1,8 +1,8 @@
+// modal to display an individual ticket
 import { Descriptions, Modal } from "antd";
 import React from "react";
 
 const CustomModal = ({ data, visibility, setModalVisibility }) => {
-  console.log(data);
   return (
     <Modal
       visible={visibility}
