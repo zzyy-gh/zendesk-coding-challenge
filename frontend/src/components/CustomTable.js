@@ -1,4 +1,5 @@
-// table to display list of tickets
+// *** table to display list of tickets ***
+
 import React from "react";
 import { Table } from "antd";
 
@@ -33,8 +34,8 @@ const CustomTable = ({ data, setModalData, setModalVisibility }) => {
       onRow={(record) => {
         return {
           onClick: () => {
-            setModalVisibility(true);
-            setModalData(record);
+            setModalVisibility(true); // show modal
+            setModalData(record); // set data of clicked row
           },
         };
       }}
