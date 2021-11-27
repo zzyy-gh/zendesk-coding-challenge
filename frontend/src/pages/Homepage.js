@@ -7,7 +7,7 @@ import getInitialTickets from "../services/getInitialTickets";
 
 const { Header, Content } = Layout;
 
-function App() {
+function Homepage() {
   const [data, setData] = useState(null); // store data fetched from API
   const [error, setError] = useState(null); // store display error message if any
   const [loading, setLoading] = useState(true); // to display loading spinner while data is being fetched
@@ -27,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default Homepage;

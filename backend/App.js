@@ -1,10 +1,10 @@
 // *** main file to handle routing ***
 
 import express from "express";
-import getInitialTicketsRoute from "./routes/getInitialTicketsRoute.js";
+import initialTicketsRoute from "./routes/initialTicketsRoute.js";
 
 const App = express();
 
-App.use("/getInitialTickets", getInitialTicketsRoute); // route to getInitialTickets
+App.use("/initialTickets", initialTicketsRoute); // route to initialTickets
 
 export default App;

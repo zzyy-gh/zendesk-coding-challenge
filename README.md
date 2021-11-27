@@ -31,3 +31,21 @@ cd frontend
 yarn
 yarn start
 ```
+
+## Running tests
+
+### Frontend
+
+```bash
+cd frontend
+yarn
+NODE_OPTIONS=--experimental-vm-modules yarn test
+```
+
+### Backend
+
+```bash
+cd backend
+yarn
+NODE_OPTIONS=--experimental-vm-modules yarn test
+```
