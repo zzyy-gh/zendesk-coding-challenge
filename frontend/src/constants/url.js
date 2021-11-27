@@ -1,1 +1,1 @@
-export const INITIAL_TICKETS_URL = "/initialTickets";
+export const TICKETS_URL_POSTFIX = "/initialTickets";

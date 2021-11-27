@@ -2,7 +2,7 @@
 import { Descriptions, Modal } from "antd";
 import React from "react";
 
-const CustomModal = ({ data, visibility, setModalVisibility }) => {
+export default function CustomModal({ data, visibility, setModalVisibility }) {
   return (
     <Modal
       visible={visibility}
@@ -33,6 +33,4 @@ const CustomModal = ({ data, visibility, setModalVisibility }) => {
       </Descriptions>
     </Modal>
   );
-};
-
-export default CustomModal;
+}

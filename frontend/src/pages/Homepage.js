@@ -1,7 +1,7 @@
 // *** Homepage ***
 
 import { useState, useEffect } from "react";
-import { Layout, Spin } from "antd";
+import { Layout } from "antd";
 import CustomContent from "../components/CustomContent";
 import getInitialTickets from "../services/getInitialTickets";
 
@@ -14,14 +14,20 @@ function Homepage() {
 
   // fetch data
   useEffect(() => {
-    getInitialTickets({ setError, setData, setLoading }); // function to get all tickets from API
+    async function fetchData() {
+      const { error, data } = await getInitialTickets();
+      setData(data);
+      setError(error);
+      setLoading(false);
+    }
+    fetchData();
   }, []);
 
   return (
     <Layout>
       <Header className="header">Zendesk Coding Challenge - Zheng Yang</Header>
       <Content className="content">
-        {loading ? <Spin /> : error ? error : <CustomContent data={data} />}
+        <CustomContent data={data} error={error} loading={loading} />
       </Content>
     </Layout>
   );

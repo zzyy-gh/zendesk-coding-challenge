@@ -3,11 +3,15 @@
 import React from "react";
 import { Table } from "antd";
 
-const CustomTable = ({ data, setModalData, setModalVisibility }) => {
+export default function CustomTable({
+  data,
+  setModalData,
+  setModalVisibility,
+}) {
   var entries = [];
 
   // add data to entries if it is not null
-  if (data) {
+  if (data != null) {
     data.forEach(function (iteration, index) {
       entries.push(...iteration["tickets"]);
     });
@@ -26,6 +30,7 @@ const CustomTable = ({ data, setModalData, setModalVisibility }) => {
 
   return (
     <Table
+      data-testid="custom-table"
       pagination={{ pageSize: 25 }}
       dataSource={entries}
       columns={columns}
@@ -41,6 +46,4 @@ const CustomTable = ({ data, setModalData, setModalVisibility }) => {
       }}
     />
   );
-};
-
-export default CustomTable;
+}

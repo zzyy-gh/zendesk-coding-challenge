@@ -39,7 +39,7 @@ yarn start
 ```bash
 cd frontend
 yarn
-NODE_OPTIONS=--experimental-vm-modules yarn test
+yarn test
 ```
 
 ### Backend

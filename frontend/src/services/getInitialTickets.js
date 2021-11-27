@@ -1,29 +1,29 @@
 // *** function to get all tickets from Zendesk ***
 import { ERROR_MSG_500, ERROR_MSG_404 } from "../constants/error_msg";
-import { INITIAL_TICKETS_URL } from "./../constants/url";
+import { TICKETS_URL_POSTFIX } from "./../constants/url";
 
-export default async function getInitialTickets({
-  setError,
-  setData,
-  setLoading,
-}) {
-  fetch(INITIAL_TICKETS_URL)
-    .then((res) => {
-      if (res.status === 200) {
-        return res.json();
-      } else if (res.status === 500) {
-        throw new Error(ERROR_MSG_500); // error 500
-      } else if (res.status === 404) {
-        throw new Error(ERROR_MSG_404); // error 404
-      }
-    })
-    .then((data) => {
-      setError(null); // clear error message
-      setData(data); // set data
-      setLoading(false); // hide loading spinner
-    })
-    .catch((error) => {
-      setLoading(false);
-      setError(error.message); // set error message if any
-    });
+export function cleanedValues(status, resJson) {
+  var error = null;
+  var data = null;
+  if (status === 200) {
+    error = null;
+    data = resJson;
+  } else if (status === 500) {
+    error = ERROR_MSG_500;
+    data = null;
+  } else if (status === 404) {
+    error = ERROR_MSG_404;
+    data = null;
+  }
+  return { error, data };
+}
+
+export default async function getInitialTickets() {
+  const res = await fetch(TICKETS_URL_POSTFIX);
+  const status = res.status;
+  var resJson = null;
+  if (status === 200) {
+    resJson = await res.json();
+  }
+  return cleanedValues(status, resJson);
 }
